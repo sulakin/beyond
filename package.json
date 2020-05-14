@@ -1,0 +1,39 @@
+{
+  "name": "beyond",
+  "description": "Ghost Theme",
+  "demo": "https://beyond.sulakin.com",
+  "version": "0.0.1",
+  "engines": {
+    "ghost": ">=3.0.0",
+    "ghost-api": "v3"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "Sulakin Vadim",
+    "email": "sulakin.vadim@gmail.com",
+    "url": "https://sulakin.com"
+  },
+  "gpm": {
+    "type": "theme",
+    "categories": [
+      "Blogs"
+    ]
+  },
+  "keywords": [
+    "ghost",
+    "theme",
+    "blog",
+    "ghost-theme",
+    "blog-theme",
+    "publishing"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sulakin/beyond.git"
+  },
+  "bugs": "https://github.com/sulakin/beyond/issues",
+  "contributors": "https://github.com/sulakin/beyond/graphs/contributors",
+  "browserslist": [
+    "defaults"
+  ]
+}
