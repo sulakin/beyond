@@ -33,6 +33,28 @@
   },
   "bugs": "https://github.com/sulakin/beyond/issues",
   "contributors": "https://github.com/sulakin/beyond/graphs/contributors",
+  "config": {
+    "image_sizes": {
+      "xxs": {
+        "width": 36
+      },
+      "xs": {
+        "width": 120
+      },
+      "s": {
+        "width": 320
+      },
+      "m": {
+        "width": 640
+      },
+      "l": {
+        "width": 960
+      },
+      "xl": {
+        "width": 1920
+      }
+    }
+  },
   "browserslist": [
     "defaults"
   ]

@@ -1,0 +1,23 @@
+{{#foreach posts}}
+  <article class="post {{post_class}}">
+    <h2>
+      <a href="{{url}}">{{{title}}}</a>
+    </h2>
+
+    <span>
+      {{t "By"}}
+      {{authors separator=", "}}
+      {{#primary_tag}}
+        {{t "in"}} 
+        <a href="{{url}}">{{name}}</a>
+      {{/primary_tag}}
+      {{t "on"}}
+
+      <time datetime="{{date format='DD-MM-YYYY'}}">{{date format="DD MMM YYYY"}}</time>
+    </span>
+
+    <p>{{excerpt}}</p>
+  </article>
+{{/foreach}}
+
+{{pagination}}
