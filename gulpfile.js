@@ -69,7 +69,7 @@ function zipper(done) {
 
   pump(
     [
-      src(['**', '!node_modules', '!node_modules/**', '!src', '!src/**']),
+      src(['**', '!node_modules', '!node_modules/**', '!dist', '!dist/**']),
       zip(filename),
       dest('dist/'),
     ],
@@ -77,7 +77,7 @@ function zipper(done) {
   );
 }
 
-const cssWatcher = () => watch('src/css/**', css);
+const cssWatcher = () => watch('src/scss/**', css);
 const hbsWatcher = () => watch(['*.hbs', 'partials/**/*.hbs'], hbs);
 const watcher = parallel(cssWatcher, hbsWatcher);
 const build = series(css, js);

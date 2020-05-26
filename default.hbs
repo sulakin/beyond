@@ -13,71 +13,20 @@
   {{!-- Styles --}}
   <link rel="stylesheet" type="text/css" href="{{asset "css/style.css"}}" />
 
-  {{!-- This tag outputs SEO meta+structured data and other important settings --}}   
+  {{!-- This tag outputs SEO meta+structured data and other important settings --}}
   {{ghost_head}}
 </head>
 
 <body class="{{body_class}}">
-  <div class="header">
-    <nav>
-        {{#if @site.logo}}
-          <span class="logo">
-            <a href="{{@site.url}}" title="{{t "Home"}}">
-              <img src="{{@site.logo}}" alt="{{t "Logo"}}" />
-            </a>
-          </span>
-        {{/if}}
+  {{> header}}
 
-        {{navigation}}
+  {{{body}}}
 
-        <ul>
-          {{#if @site.twitter}}
-            <li>
-              <a href="{{twitter_url}}" 
-                title="Twitter" 
-                title="{{@site.twitter}}" 
-                target="_blank">Twitter</a>
-            </li>
-          {{/if}}
-
-          {{#if @site.facebook}}
-            <li>
-              <a href="{{facebook_url}}"
-                title="Facebook" 
-                title="{{@site.facebook}}" 
-                target="_blank">Facebook</a>
-            </li>
-          {{/if}}
-
-          <li>
-            <a href="{{@site.url}}/rss/" title="RSS" target="_blank">RSS</a>
-          </li>
-        </ul>
-    </nav>
-  </div>
-
-  <section>
-    {{{body}}}
-
-    <div class="footer">
-      <nav>
-        {{#if @site.secondary_navigation}}
-          {{navigation type="secondary"}}
-        {{else}}
-          <span>{{@site.title}} &copy; {{date format='YYYY'}}</span>
-        {{/if}}
-        <span>
-          {{t "Published with"}} 
-          <a href="https://ghost.org">Ghost</a> 
-          &bull; {{t "Theme" }} 
-          <a href="https://github.com/sulakin/beyond">Beyond</a>
-        </span>
-      </nav>
-    </div>
-  </section>
+  {{!-- The footer --}}
+  {{> footer}}
 
   {{!-- Load basic scripts --}}
-  <script type="text/javascript" src="{{asset "js/script.js"}}"></script>
+  <script type="text/javascript" src="{{asset "js/bandle.js"}}"></script>
 
   {{!-- Load scripts from other template files --}}
   {{{block "scripts"}}}

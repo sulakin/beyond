@@ -1,25 +1,8 @@
 {{!< default}}
-<header class="home-header {{#if @site.cover_image}} has-cover{{/if}}">
-  <div>
-    <h1 class="title">{{@site.title}}</h1>
 
-    {{#if @site.description}}
-      <span class="description">{{@site.description}}</span>
-    {{/if}}
-
-    {{#if @site.cover_image}}
-      <div class="cover">
-        <img srcset="{{img_url @site.cover_image size="s"}} 320w,
-            {{img_url @site.cover_image size="m"}} 640w,
-            {{img_url @site.cover_image size="l"}} 960w,
-            {{img_url @site.cover_image size="xl"}} 1920w"
-          src="{{img_url @site.cover_image size="xl"}}"
-          alt="{{@site.title}}"
-        />
-      </div>
-    {{/if}}
-  </div>
-</header>
+{{#if @site.description}}
+  <h1 class="description">{{@site.description}}</h1>
+{{/if}}
 
 <div id="index" class="container">
   <main class="content" role="main">

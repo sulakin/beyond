@@ -1,22 +1,27 @@
 {{#foreach posts}}
   <article class="post {{post_class}}">
-    <h2>
-      <a href="{{url}}">{{{title}}}</a>
-    </h2>
-
-    <span>
-      {{t "By"}}
-      {{authors separator=", "}}
-      {{#primary_tag}}
-        {{t "in"}} 
-        <a href="{{url}}">{{name}}</a>
-      {{/primary_tag}}
-      {{t "on"}}
-
-      <time datetime="{{date format='DD-MM-YYYY'}}">{{date format="DD MMM YYYY"}}</time>
+    <span class="post__left">
+      <img src="{{img_url feature_image size="m"}}" alt="{{{title}}}"/>
+      {{#if primary_tag}}
+        <ul class="tags">
+          <li><a href="{{primary_tag.url}}" title="{{primary_tag.name}}">#{{primary_tag.name}}</a></li>
+        </ul>
+      {{/if}}
     </span>
+    <span class="post__right">
+      <h2>
+        <a href="{{url}}">{{{title}}}</a>
+      </h2>
 
-    <p>{{excerpt}}</p>
+      <p>{{excerpt}}</p>
+
+      <span>
+        {{t "By"}}
+        {{authors separator=", "}}
+        {{t "on"}}
+        <time datetime="{{date format='DD-MM-YYYY'}}">{{date format="DD MMM YYYY"}}</time>
+      </span>
+    </span>
   </article>
 {{/foreach}}
 
