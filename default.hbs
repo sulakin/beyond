@@ -20,13 +20,15 @@
 <body class="{{body_class}}">
   {{> header}}
 
-  {{{body}}}
+  <section>
+    {{{body}}}
+  </section>
 
   {{!-- The footer --}}
   {{> footer}}
 
   {{!-- Load basic scripts --}}
-  <script type="text/javascript" src="{{asset "js/bandle.js"}}"></script>
+  <script type="text/javascript" src="{{asset "js/bundle.js"}}"></script>
 
   {{!-- Load scripts from other template files --}}
   {{{block "scripts"}}}

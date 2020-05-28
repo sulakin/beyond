@@ -39,6 +39,8 @@
   "bugs": "https://github.com/sulakin/beyond/issues",
   "contributors": "https://github.com/sulakin/beyond/graphs/contributors",
   "devDependencies": {
+    "@babel/core": "^7.10.1",
+    "@babel/preset-env": "^7.10.1",
     "autoprefixer": "9.8.0",
     "cssnano": "4.1.10",
     "gulp": "4.0.2",
@@ -48,10 +50,13 @@
     "gulp-sass": "^4.1.0",
     "gulp-uglify": "3.0.2",
     "gulp-zip": "5.0.1",
+    "jquery": "^3.5.1",
     "postcss-color-function": "4.1.0",
     "postcss-custom-properties": "9.1.1",
     "postcss-easy-import": "3.0.0",
-    "pump": "3.0.0"
+    "pump": "3.0.0",
+    "webpack": "^4.43.0",
+    "webpack-stream": "^5.2.1"
   },
   "config": {
     "image_sizes": {
@@ -77,5 +82,8 @@
   },
   "browserslist": [
     "defaults"
-  ]
+  ],
+  "dependencies": {
+    "babel-loader": "^8.1.0"
+  }
 }

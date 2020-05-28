@@ -1,3 +1,6 @@
+const webpackStream = require('webpack-stream');
+const webpackConfig = require('./webpack.config.js');
+
 const { series, watch, src, dest, parallel } = require('gulp');
 const pump = require('pump');
 
@@ -55,7 +58,7 @@ function js(done) {
   pump(
     [
       src(['src/js/lib/*.js', 'src/js/*.js'], { sourcemaps: true }),
-      concat('bandle.js'),
+      webpackStream(webpackConfig),
       uglify(),
       dest('./assets/js', { sourcemaps: '.' }),
       livereload(),
