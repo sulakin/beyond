@@ -131,15 +131,51 @@ body {
   width: calc(100% + 20px);
 }
 
+.home-template {
+  .post {
+    width: 1380px;
+    max-height: 500px;
+    flex-direction: row;
+    .post__left {
+      position: relative;
+      img {
+        max-width: 560px;
+        vertical-align: top;
+      }
+      .tags {
+        position: absolute;
+        bottom: 30px;
+        left: 20px;
+        li {
+          list-style: none;
+          a {
+            color: black;
+            text-decoration: none;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 6px;
+            padding: 4px 10px;
+            border: 2px solid black;
+            font-weight: 700;
+            font-size: 2rem;
+          }
+        }
+      }
+    }
+    .post__right {
+      padding: 30px 50px;
+    }
+  }
+}
+
 .post {
-  width: 1380px;
-  max-height: 500px;
+  padding: 40px;
   margin: 60px auto;
   border-radius: 20px;
   background: white;
   overflow: hidden;
   color: black;
   display: flex;
+  flex-direction: column;
   h2 {
     font-size: 5.2rem;
     margin-bottom: 30px;
@@ -151,41 +187,39 @@ body {
       }
     }
   }
-  .post__left {
-    position: relative;
-    img {
-      max-width: 560px;
-      vertical-align: top;
+  & figure {
+    margin-bottom: 60px;
+    &,
+    & > * {
+      max-width: 100%;
     }
-    .tags {
-      position: absolute;
-      bottom: 30px;
-      left: 20px;
-      li {
-        list-style: none;
-        a {
-          color: black;
-          text-decoration: none;
-          background: rgba(255, 255, 255, 0.8);
-          border-radius: 6px;
-          padding: 4px 10px;
-          border: 2px solid black;
-          font-weight: 700;
-          font-size: 2rem;
-        }
-      }
-    }
-  }
-  .post__right {
-    padding: 30px 50px;
   }
 }
 
-section {
+main.container {
   display: flex;
   height: calc(100vh - 156px);
   border-radius: 0 0 60px 60px;
   overflow: hidden;
+}
+
+nav.pagination {
+  justify-content: center;
+  display: flex;
+  margin-bottom: 40px;
+  a {
+    color: black;
+    background: white;
+    border-radius: 4px;
+    &:hover {
+      text-decoration: none;
+    }
+  }
+  & > * {
+    padding: 10px 20px;
+    justify-content: space-between;
+    align-items: center;
+  }
 }
 
 .ss-wrapper {

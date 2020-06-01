@@ -1,0 +1,23 @@
+{{!< default}}
+
+{{#post}}
+  <article class="post">
+    {{#if feature_image}}
+      <figure class="post-full-image">
+        <img
+          srcset="{{img_url feature_image size="s"}} 320w,
+                  {{img_url feature_image size="m"}} 560w,
+                  {{img_url feature_image size="l"}} 960w,
+                  {{img_url feature_image size="xl"}} 2000w"
+          sizes="(max-width: 800px) 560px,
+              (max-width: 960px) 960px,
+                  1920px"
+          src="{{img_url feature_image size="xl"}}"
+          alt="{{title}}"
+        />
+      </figure>
+    {{/if}}
+
+    {{content}}
+  </article>
+{{/post}}
