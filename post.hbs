@@ -3,7 +3,7 @@
 {{#post}}
   <article class="post">
     {{#if feature_image}}
-      <figure class="post-full-image">
+      <figure class="post__full_image">
         <img
           srcset="{{img_url feature_image size="s"}} 320w,
                   {{img_url feature_image size="m"}} 560w,
@@ -18,6 +18,8 @@
       </figure>
     {{/if}}
 
-    {{content}}
+    <div class="post__inner">
+      {{content}}
+    </div>
   </article>
 {{/post}}
