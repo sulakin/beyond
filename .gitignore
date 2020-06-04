@@ -3,8 +3,7 @@ npm-debug.log
 
 package-lock.json
 
-assets/
-assets/**
-
 dist/
 dist/**
+
+*.map
