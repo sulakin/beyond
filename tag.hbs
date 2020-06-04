@@ -1,7 +1,7 @@
 {{!< default}}
 
 {{#tag}}
-  <div class="inner site-header-content">
+  <div class="site-header-content">
     <h1 class="site-title">{{name}}</h1>
     <h2 class="site-description">
       {{#if description}}
@@ -13,4 +13,6 @@
   </div>
 {{/tag}}
 
-{{> "posts"}}
+<div class="post__feed">
+  {{> "posts"}}
+</div>

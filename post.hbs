@@ -2,16 +2,34 @@
 
 {{#post}}
   <article class="post">
+    <header class="post__full__header">
+
+      {{#if primary_tag}}
+        <section class="post__full__tags">
+          {{#primary_tag}}
+            <a href="{{url}}">{{name}}</a>
+          {{/primary_tag}}
+        </section>
+      {{/if}}
+
+      <h1 class="post__full__title">{{title}}</h1>
+
+      {{#if custom_excerpt}}
+        <p class="post__full__custom_excerpt">{{custom_excerpt}}</p>
+      {{/if}}
+
+    </header>
+
     {{#if feature_image}}
-      <figure class="post__full_image">
+      <figure class="post__full__image">
         <img
           srcset="{{img_url feature_image size="s"}} 320w,
                   {{img_url feature_image size="m"}} 560w,
                   {{img_url feature_image size="l"}} 960w,
                   {{img_url feature_image size="xl"}} 2000w"
           sizes="(max-width: 800px) 560px,
-              (max-width: 960px) 960px,
-                  1920px"
+                 (max-width: 960px) 960px,
+                 1920px"
           src="{{img_url feature_image size="xl"}}"
           alt="{{title}}"
         />
