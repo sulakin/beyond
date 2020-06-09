@@ -1,3 +1,5 @@
+@import 'colors';
+
 * {
   margin: 0;
   padding: 0;
@@ -11,8 +13,8 @@
 }
 
 ::selection {
-  color: white;
-  background-color: black;
+  color: $white;
+  background-color: $black;
 }
 
 .container {
@@ -30,7 +32,7 @@ html {
   font-size: 62.5% !important;
   -webkit-font-smoothing: antialiased;
   font-family: 'Fira Sans', sans-serif;
-  background: white;
+  background: $white;
   display: flex;
 }
 
@@ -38,10 +40,11 @@ body {
   font-size: 2rem;
   width: 100%;
   height: calc(100% - 30px);
-  background: #324fae;
-  box-shadow: inset -100px -50px 100px rgba(0, 0, 0, 0.1), inset 100px 50px 100px rgba(0, 0, 0, 0.1);
-  color: #fff;
-  border: 20px solid #fff;
+  background: $primary;
+  box-shadow: inset -100px -50px 100px opacify($primary, 0.1),
+    inset 100px 50px 100px opacify($primary, 0.1);
+  color: $white;
+  border: 20px solid $white;
   border-bottom: 0;
   border-radius: 60px;
   overflow: hidden;
@@ -61,7 +64,7 @@ body {
     text-transform: uppercase;
     line-height: 50px;
     letter-spacing: 14px;
-    color: white;
+    color: $white;
     text-decoration: none;
     img {
       max-height: 40px;
@@ -72,17 +75,17 @@ body {
     a {
       font-weight: 700;
       font-size: 2.4rem;
-      color: white;
+      color: $white;
       padding: 6px 18px;
       text-decoration: none;
       border-radius: 8px;
       &.signin {
-        border: 3px solid white;
-        background: white;
-        color: #324fae;
+        border: 3px solid $white;
+        background: $white;
+        color: $primary;
         &:hover {
           background: none;
-          color: white;
+          color: $white;
         }
       }
       &.signup {
@@ -92,12 +95,12 @@ body {
         }
       }
       &.subscribe__button {
-        border: 3px solid white;
-        background: white;
-        color: #324fae;
+        border: 3px solid $white;
+        background: $white;
+        color: $primary;
         &:hover {
           background: none;
-          color: white;
+          color: $white;
         }
       }
     }
@@ -105,15 +108,15 @@ body {
   ul.nav {
     li {
       a {
-        border: 3px solid rgba(0, 0, 0, 0);
+        border: 3px solid $transparency;
         text-transform: uppercase;
         &:hover,
         &.active {
-          border: 3px solid white;
+          border: 3px solid $white;
         }
       }
       &.nav-current a {
-        border: 3px solid white;
+        border: 3px solid $white;
       }
     }
   }
@@ -128,12 +131,12 @@ body {
   font-size: 7.2rem;
   font-weight: 900;
   margin: 20px auto 120px;
-  color: white;
+  color: $white;
   position: relative;
   &:after {
     content: '';
     position: absolute;
-    background: white;
+    background: $white;
     display: inline-block;
     left: 50%;
     margin: 125px 0 0 -130px;
@@ -158,9 +161,9 @@ body {
   left: 0;
   z-index: 9000;
   padding: 20px 0;
-  color: #fff;
+  color: $white;
   text-align: center;
-  background: #324fae;
+  background: $primary;
   transition: all 0.35s cubic-bezier(0.19, 1, 0.22, 1) 0.5s;
   transform: translateY(-175%);
 }
@@ -193,32 +196,30 @@ body {
   display: block;
   width: 40px;
   height: 40px;
-}
-
-.subscribe-close-button:before {
-  content: '';
-  position: absolute;
-  top: 20px;
-  right: 4px;
-  display: block;
-  width: 32px;
-  height: 1px;
-  background: #fff;
-  opacity: 0.8;
-  transform: rotate(45deg);
-}
-
-.subscribe-close-button:after {
-  content: '';
-  position: absolute;
-  top: 20px;
-  right: 4px;
-  display: block;
-  width: 32px;
-  height: 1px;
-  background: #fff;
-  opacity: 0.8;
-  transform: rotate(-45deg);
+  &:before {
+    content: '';
+    position: absolute;
+    top: 20px;
+    right: 4px;
+    display: block;
+    width: 32px;
+    height: 1px;
+    background: $white;
+    opacity: 0.8;
+    transform: rotate(45deg);
+  }
+  &:after {
+    content: '';
+    position: absolute;
+    top: 20px;
+    right: 4px;
+    display: block;
+    width: 32px;
+    height: 1px;
+    background: $white;
+    opacity: 0.8;
+    transform: rotate(-45deg);
+  }
 }
 
 .subscribe-close-overlay:hover,
@@ -236,30 +237,81 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: rgba(9, 10, 11, 0.97);
+  background: opacify($primary, 0.8);
   opacity: 0;
   transition: opacity 0.2s ease-in;
   pointer-events: none;
-}
+  &:target {
+    z-index: 2001;
+    opacity: 1;
+    pointer-events: auto;
+  }
 
-.subscribe-overlay:target {
-  z-index: 2001;
-  opacity: 1;
-  pointer-events: auto;
+  .subscribe-form {
+    border: none;
+    color: $white;
+    background: none;
+  }
+
+  form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    max-width: 540px;
+  }
+
+  .form-group {
+    flex-grow: 1;
+  }
+
+  .subscribe-email {
+    display: block;
+    padding: 14px 20px;
+    width: 100%;
+    border: none;
+    color: $gray01;
+    font-size: 2rem;
+    line-height: 1em;
+    font-weight: normal;
+    letter-spacing: 0.5px;
+    user-select: text;
+    border-radius: 8px;
+    transition: border-color 0.15s linear;
+    -webkit-appearance: none;
+  }
+
+  button {
+    display: inline-block;
+    margin: 0 0 0 15px;
+    padding: 0 25px;
+    height: 52px;
+    outline: none;
+    color: $white;
+    font-size: 1.7rem;
+    line-height: 38px;
+    font-weight: 400;
+    text-align: center;
+    background: $primary;
+    border-radius: 8px;
+    -webkit-font-smoothing: subpixel-antialiased;
+    &:active,
+    &:focus {
+      background: $primary;
+    }
+  }
+
+  .loading .button-loader {
+    top: 5px;
+  }
 }
 
 .subscribe-overlay-content {
   position: relative;
   margin: 0 0 5vw 0;
   padding: 4vw;
-  color: #fff;
+  color: $white;
   text-align: center;
-}
-
-.subscribe-overlay .subscribe-form {
-  border: none;
-  color: #fff;
-  background: none;
 }
 
 .subscribe-overlay-logo {
@@ -279,71 +331,16 @@ body {
 .subscribe-overlay-description {
   margin: 0 auto 50px;
   max-width: 650px;
-  color: #fff;
+  color: $white;
   font-size: 2.4rem;
   line-height: 1.3em;
   font-weight: 300;
   opacity: 0.8;
 }
 
-.subscribe-overlay form {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0 auto;
-  max-width: 540px;
-}
-
-.subscribe-overlay .form-group {
-  flex-grow: 1;
-}
-
-.subscribe-overlay .subscribe-email {
-  display: block;
-  padding: 14px 20px;
-  width: 100%;
-  border: none;
-  color: #738a94;
-  font-size: 2rem;
-  line-height: 1em;
-  font-weight: normal;
-  letter-spacing: 0.5px;
-  user-select: text;
-  border-radius: 8px;
-  transition: border-color 0.15s linear;
-
-  -webkit-appearance: none;
-}
-
 .subscribe-email:focus {
   outline: 0;
-  border-color: color(#92a3ab l(-2%));
-}
-
-.subscribe-overlay button {
-  display: inline-block;
-  margin: 0 0 0 15px;
-  padding: 0 25px;
-  height: 52px;
-  outline: none;
-  color: #fff;
-  font-size: 1.7rem;
-  line-height: 38px;
-  font-weight: 400;
-  text-align: center;
-  background: #324fae;
-  border-radius: 8px;
-
-  -webkit-font-smoothing: subpixel-antialiased;
-}
-
-.subscribe-overlay button:active,
-.subscribe-overlay button:focus {
-  background: #324fae;
-}
-
-.subscribe-overlay .loading .button-loader {
-  top: 5px;
+  border-color: color($gray01 l(-2%));
 }
 
 @media (max-width: 500px) {
@@ -380,12 +377,12 @@ body {
         li {
           list-style: none;
           a {
-            color: black;
+            color: $black;
             text-decoration: none;
-            background: rgba(255, 255, 255, 0.8);
+            background: opacify($white, 0.8);
             border-radius: 6px;
             padding: 4px 10px;
-            border: 2px solid black;
+            border: 2px solid $black;
             font-weight: 700;
             font-size: 2rem;
           }
@@ -402,9 +399,9 @@ body {
   padding-bottom: 40px;
   margin: 0 auto 40px;
   border-radius: 20px;
-  background: #fff;
+  background: $white;
   overflow: hidden;
-  color: #000;
+  color: $black;
   display: flex;
   flex-direction: column;
   h2 {
@@ -412,9 +409,9 @@ body {
     margin-bottom: 30px;
     a {
       text-decoration: none;
-      color: black;
+      color: $black;
       &:hover {
-        box-shadow: 0px 2px 0px black;
+        box-shadow: 0 2px 0 $black;
       }
     }
   }
@@ -426,11 +423,11 @@ body {
       margin: 1.5em 0 3em;
       padding: 20px;
       max-width: 100%;
-      border: 1px solid black;
-      color: #e5eff5;
+      border: 1px solid $black;
+      color: $light01;
       font-size: 2.6rem;
       line-height: 1.5em;
-      background: black;
+      background: $black;
       border-radius: 20px;
     }
   }
@@ -457,8 +454,8 @@ nav.pagination {
   display: flex;
   margin-bottom: 40px;
   a {
-    color: black;
-    background: white;
+    color: $black;
+    background: $white;
     border-radius: 4px;
     &:hover {
       text-decoration: none;
@@ -475,7 +472,7 @@ nav.pagination {
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  color: #738a94;
+  color: $gray01;
   font-size: 1.3rem;
   line-height: 1.4em;
   font-weight: 600;
@@ -501,7 +498,7 @@ nav.pagination {
   display: block;
   width: 100%;
   height: 100%;
-  background: #e3e9ed;
+  background: $light01;
   border-radius: 100%;
   -o-object-fit: cover;
   object-fit: cover;
@@ -509,7 +506,7 @@ nav.pagination {
 
 .post__full-byline-meta {
   margin: 2px 0 0;
-  color: #92a3ab;
+  color: $gray01;
   font-size: 1.2rem;
   line-height: 1.2em;
   letter-spacing: 0.2px;
@@ -520,9 +517,9 @@ nav.pagination {
     line-height: 1.4em;
     font-weight: 500;
     a {
-      color: #2b2f36;
+      color: $gray02;
       &:hover {
-        color: #15171a;
+        color: $dark01;
       }
     }
   }
@@ -540,7 +537,7 @@ nav.pagination {
   margin: 0 -4px;
   width: 40px;
   height: 40px;
-  border: 2px solid #fff;
+  border: 2px solid $white;
   border-radius: 100%;
   transition: all 0.5s cubic-bezier(0.4, 0.01, 0.165, 0.99) 0.7s;
 }
@@ -549,7 +546,7 @@ nav.pagination {
   width: 1040px;
   margin: 0 auto;
   padding-bottom: 30px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+  border-bottom: 1px solid opacify($white, 0.5);
   margin-bottom: 40px;
   img {
     float: left;
@@ -589,12 +586,12 @@ nav.pagination {
         li {
           list-style: none;
           a {
-            color: #000;
+            color: $black;
             text-decoration: none;
-            background: hsla(0, 0%, 100%, 0.8);
+            background: opacify($white, 0.8);
             border-radius: 6px;
             padding: 4px 10px;
-            border: 2px solid #000;
+            border: 2px solid $black;
             font-weight: 700;
             font-size: 2rem;
           }
@@ -630,7 +627,7 @@ nav.pagination {
 
 .ss-scroll {
   position: relative;
-  background: rgba(255, 255, 255, 0.1);
+  background: opacify($white, 0.1);
   width: 20px;
   border-radius: 4px;
   top: 0;
@@ -641,7 +638,7 @@ nav.pagination {
   right: 20px !important;
   transition: opacity 0.25s linear;
   &:hover {
-    background-color: white;
+    background-color: $white;
   }
   & .ss-grabbed {
     user-select: none;
@@ -672,15 +669,15 @@ nav.pagination {
   left: 0;
   width: 100%;
   height: 30px;
-  background: white;
+  background: $white;
   z-index: 1;
   .copy {
-    color: #adadad;
+    color: $gray03;
     a {
-      color: #adadad;
+      color: $gray03;
       text-decoration: none;
       &:hover {
-        color: #324fae;
+        color: $primary;
         text-decoration: underline;
       }
     }
@@ -690,11 +687,11 @@ nav.pagination {
       display: inline-block;
       margin-left: 12px;
       a {
-        color: black;
+        color: $black;
         &.active,
         &:hover {
           text-decoration: none;
-          color: #324fae;
+          color: $primary;
         }
       }
     }
