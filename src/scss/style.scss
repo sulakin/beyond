@@ -24,6 +24,14 @@
   p,
   ul {
     margin: 0 0 5rem;
+    font-weight: 300;
+    strong,
+    b {
+      font-weight: 400;
+    }
+    &:last-of-type {
+      margin: 0;
+    }
   }
 }
 
@@ -37,7 +45,8 @@ html {
 }
 
 body {
-  font-size: 2rem;
+  font-size: 2.4rem;
+  line-height: 3.6rem;
   width: 100%;
   height: calc(100% - 30px);
   background: $primary;
@@ -130,7 +139,7 @@ body {
   text-align: center;
   font-size: 7.2rem;
   font-weight: 900;
-  margin: 20px auto 120px;
+  margin: 20px auto 150px;
   color: $white;
   position: relative;
   &:after {
@@ -139,7 +148,7 @@ body {
     background: $white;
     display: inline-block;
     left: 50%;
-    margin: 125px 0 0 -130px;
+    margin: 112px 0 0 -130px;
     width: 260px;
     height: 4px;
     border-radius: 2px;
@@ -383,7 +392,7 @@ body {
             border-radius: 6px;
             padding: 4px 10px;
             border: 2px solid $black;
-            font-weight: 700;
+            font-weight: 500;
             font-size: 2rem;
           }
         }
@@ -397,7 +406,7 @@ body {
 
 .post {
   padding-bottom: 40px;
-  margin: 0 auto 40px;
+  margin: 0 auto;
   border-radius: 20px;
   background: $white;
   overflow: hidden;
@@ -406,7 +415,8 @@ body {
   flex-direction: column;
   h2 {
     font-size: 4rem;
-    margin-bottom: 30px;
+    line-height: 6rem;
+    margin-bottom: 20px;
     a {
       text-decoration: none;
       color: $black;
@@ -435,18 +445,11 @@ body {
     margin-bottom: 60px;
     &,
     & > * {
-      max-width: 1200px;
-      margin: 0 auto 20px;
+      max-width: 1000px;
+      margin: 20px auto;
       border-radius: 30px;
     }
   }
-}
-
-main.container {
-  display: flex;
-  height: calc(100vh - 156px);
-  border-radius: 0 0 60px 60px;
-  overflow: hidden;
 }
 
 nav.pagination {
@@ -482,6 +485,7 @@ nav.pagination {
 .post__full__title {
   margin: 0 0 20px;
   font-size: 6rem;
+  line-height: 8rem;
 }
 
 .post__full__custom_excerpt {
@@ -609,6 +613,44 @@ nav.pagination {
   }
 }
 
+main.container {
+  display: flex;
+  width: calc(100% - 40px);
+  height: calc(100vh - 156px);
+  margin: 0 auto;
+  padding: 30px 0 0;
+  overflow: hidden;
+}
+
+.post-template {
+  main.container {
+    height: calc(100vh - 185px);
+    width: 1320px;
+    border-radius: 30px;
+    background: $white;
+    padding: 0;
+  }
+  .ss-scroll {
+    background-color: $primary;
+    background-color: #324fae;
+    box-shadow: inset 0 18px 0 white, inset 0 -18px 0 white;
+    &:hover {
+      background-color: $primary;
+    }
+    &:after,
+    &:before {
+      content: '';
+      width: 20px;
+      height: 10px;
+      background: white;
+      position: absolute;
+    }
+    &:before {
+      bottom: 0;
+    }
+  }
+}
+
 .ss-wrapper {
   overflow: hidden;
   width: 100%;
@@ -617,7 +659,7 @@ nav.pagination {
 .ss-content {
   height: 100%;
   width: 100%;
-  padding: 0 38px 0 20px;
+  padding: 0;
   position: relative;
   right: -18px;
   overflow: auto;
@@ -627,7 +669,7 @@ nav.pagination {
 
 .ss-scroll {
   position: relative;
-  background: opacify($white, 0.1);
+  background-color: opacify($white, 0.4);
   width: 20px;
   border-radius: 4px;
   top: 0;
